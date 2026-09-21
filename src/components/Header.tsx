@@ -1,5 +1,5 @@
 export default function Header() {
-  const companyName = process.env.NEXT_PUBLIC_COMPANY_NAME || "";
+  const companyName = process.env.COMPANY_NAME || "";
 
   return (
     <header>
