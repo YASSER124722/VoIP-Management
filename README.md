@@ -7,8 +7,12 @@ The application provides a simplified web interface to manage FreePBX extensions
 ## Features
 
 - **Dashboard** — Overview of total extensions, weekly calls, answered and missed calls today
+  ![Dashboard](screenShots/dashboard.png)
 - **Extensions** — List all SIP extensions with details; edit extension name, caller ID and SIP secret
+  ![Extensions](screenShots/extensions.png)
+  ![Extensions](screenShots/editExtension.png)
 - **Calls** — Browse call history (last 7 days) with status badges and duration
+  ![Calls](screenShots/calls.png)
 
 ## Requirements
 
@@ -86,6 +90,17 @@ src/
 ## FreePBX API Setup
 
 1. In FreePBX, go to **Admin → API**
+
+   ![FreePBX](screenShots/api1.png)
+
 2. Create a new API client
+
+   ![FreePBX](screenShots/api2.png)
+
 3. Grant the scopes: `gql:core`, `gql:cdr`
+
+   ![FreePBX](screenShots/scopes.png)
+
 4. Copy the **Client ID** and **Client Secret** into `.env.local`
+
+   ![FreePBX](screenShots/credentials.png)
