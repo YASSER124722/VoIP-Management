@@ -7,11 +7,17 @@ The application provides a simplified web interface to manage FreePBX extensions
 ## Features
 
 - **Dashboard** — Overview of total extensions, weekly calls, answered and missed calls today
+- 
   ![Dashboard](screenShots/dashboard.png)
+  
 - **Extensions** — List all SIP extensions with details; edit extension name, caller ID and SIP secret
+- 
   ![Extensions](screenShots/extensions.png)
+  
   ![Extensions](screenShots/editExtension.png)
+  
 - **Calls** — Browse call history (last 7 days) with status badges and duration
+- 
   ![Calls](screenShots/calls.png)
 
 ## Requirements
