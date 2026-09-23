@@ -42,7 +42,7 @@ Create a `.env.local` file at the project root:
 FREEPBX_URL=http://<your-freepbx-ip>
 FREEPBX_CLIENT_ID=<your-client-id>
 FREEPBX_CLIENT_SECRET=<your-client-secret>
-COMPANY_NAME=Your Company Name
+NEXT_PUBLIC_COMPANY_NAME=Your Company Name
 ```
 
 ### 3. Add your company logo
