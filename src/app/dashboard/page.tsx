@@ -16,34 +16,18 @@ function dispositionBadge(disposition: string) {
   const d = disposition?.toUpperCase();
 
   if (d === "ANSWERED") {
-    return (
-      <span className="badge badge-success">
-        {disposition}
-      </span>
-    );
+    return <span className="badge badge-success">{disposition}</span>;
   }
 
   if (d === "FAILED" || d === "BUSY") {
-    return (
-      <span className="badge badge-danger">
-        {disposition}
-      </span>
-    );
+    return <span className="badge badge-danger">{disposition}</span>;
   }
 
   if (d === "NO ANSWER") {
-    return (
-      <span className="badge badge-warning">
-        {disposition}
-      </span>
-    );
+    return <span className="badge badge-warning">{disposition}</span>;
   }
 
-  return (
-    <span className="badge badge-default">
-      {disposition}
-    </span>
-  );
+  return <span className="badge badge-default">{disposition}</span>;
 }
 
 export default function Dashboard() {
@@ -59,9 +43,7 @@ export default function Dashboard() {
     fetch("/api/extensions")
       .then((response) => response.json())
       .then((data) => {
-        setExtensionCount(
-          data.data?.fetchAllExtensions?.totalCount || 0
-        );
+        setExtensionCount(data.data?.fetchAllExtensions?.totalCount || 0);
       });
 
     // Get calls
@@ -70,13 +52,10 @@ export default function Dashboard() {
     fetch("/api/calls")
       .then((response) => response.json())
       .then((data) => {
-        const cdrs: Call[] =
-          data.data?.fetchAllCdrs?.cdrs || [];
+        const cdrs: Call[] = data.data?.fetchAllCdrs?.cdrs || [];
 
         // Total calls from the API
-        setCallsCount(
-          data.data?.fetchAllCdrs?.totalCount || 0
-        );
+        setCallsCount(data.data?.fetchAllCdrs?.totalCount || 0);
 
         setCalls(cdrs);
 
@@ -93,17 +72,15 @@ export default function Dashboard() {
         // Today's answered calls
         setAnsweredCount(
           todayCalls.filter(
-            (call) =>
-              call.disposition?.toUpperCase() === "ANSWERED"
-          ).length
+            (call) => call.disposition?.toUpperCase() === "ANSWERED",
+          ).length,
         );
 
         // Today's missed calls
         setMissedCount(
           todayCalls.filter(
-            (call) =>
-              call.disposition?.toUpperCase() === "NO ANSWER"
-          ).length
+            (call) => call.disposition?.toUpperCase() === "NO ANSWER",
+          ).length,
         );
       })
       .finally(() => {
@@ -173,12 +150,8 @@ export default function Dashboard() {
             maxWidth: "350px",
           }}
         >
-          <h3 style={{ color: "var(--success)" }}>
-            Answered Today
-          </h3>
-          <p style={{ color: "var(--success)" }}>
-            {answeredCount}
-          </p>
+          <h3 style={{ color: "var(--success)" }}>Answered Today</h3>
+          <p style={{ color: "var(--success)" }}>{answeredCount}</p>
         </div>
 
         {/* Missed - TODAY */}
@@ -189,12 +162,8 @@ export default function Dashboard() {
             maxWidth: "350px",
           }}
         >
-          <h3 style={{ color: "var(--danger)" }}>
-            Missed Today
-          </h3>
-          <p style={{ color: "var(--danger)" }}>
-            {missedCount}
-          </p>
+          <h3 style={{ color: "var(--danger)" }}>Missed Today</h3>
+          <p style={{ color: "var(--danger)" }}>{missedCount}</p>
         </div>
       </div>
 
@@ -231,25 +200,18 @@ export default function Dashboard() {
             <tbody>
               {!loadingCalls && calls.length === 0 ? (
                 <tr>
-                  <td
-                    colSpan={5}
-                    style={{ textAlign: "center" }}
-                  >
+                  <td colSpan={5} style={{ textAlign: "center" }}>
                     No calls found.
                   </td>
                 </tr>
               ) : (
-                calls.slice(0, 5).map((call) => (
+                calls.slice(0, 10).map((call) => (
                   <tr key={call.id}>
-                    <td style={{ fontWeight: 500 }}>
-                      {call.src}
-                    </td>
+                    <td style={{ fontWeight: 500 }}>{call.src}</td>
 
                     <td>{call.dst}</td>
 
-                    <td>
-                      {dispositionBadge(call.disposition)}
-                    </td>
+                    <td>{dispositionBadge(call.disposition)}</td>
 
                     <td>{call.duration}s</td>
 
@@ -266,10 +228,7 @@ export default function Dashboard() {
 
               {loadingCalls && (
                 <tr>
-                  <td
-                    colSpan={5}
-                    style={{ textAlign: "center" }}
-                  >
+                  <td colSpan={5} style={{ textAlign: "center" }}>
                     Loading calls...
                   </td>
                 </tr>

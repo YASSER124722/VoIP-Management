@@ -22,6 +22,7 @@ export default function Sidebar() {
           const isActive =
             pathname === item.href ||
             (item.href !== "/dashboard" && pathname?.startsWith(item.href));
+
           return (
             <a
               key={item.href}
@@ -34,6 +35,14 @@ export default function Sidebar() {
           );
         })}
       </nav>
+
+      <div className="sidebar-copyright">
+        © {new Date().getFullYear()} COMPANY NAME
+        <br />
+        phone number
+        <br />
+        contact@gmail.com
+      </div>
     </aside>
   );
 }

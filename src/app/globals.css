@@ -484,3 +484,12 @@ input::placeholder {
   font-weight: 500;
   margin-bottom: 24px;
 }
+
+.sidebar-copyright {
+  margin-top: auto;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}

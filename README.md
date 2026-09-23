@@ -36,13 +36,15 @@ npm install
 
 ### 2. Configure environment variables
 
-Create a `.env.local` file at the project root:
+modify in `.env.local` file at the project root:
 
 ```env
 FREEPBX_URL=http://<your-freepbx-ip>
 FREEPBX_CLIENT_ID=<your-client-id>
 FREEPBX_CLIENT_SECRET=<your-client-secret>
-NEXT_PUBLIC_COMPANY_NAME=Your Company Name
+NEXT_PUBLIC_COMPANY_NAME=COMPANY NAME
+PORT=3000
+NODE_ENV=production
 ```
 
 ### 3. Add your company logo
